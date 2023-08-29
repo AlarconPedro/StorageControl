@@ -1,5 +1,5 @@
 # storage_control
-# Painel Web
+# Painel Web, Controle de Estoque
 
 A new Flutter project.
 
