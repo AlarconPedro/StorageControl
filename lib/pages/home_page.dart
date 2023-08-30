@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:storage_control/pages/dashboard.dart';
 import 'package:storage_control/pages/lista_itens_page.dart';
+import 'package:storage_control/pages/listar_quartos_page.dart';
 
 import '../classes/classes.dart';
 
@@ -16,6 +17,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Widget telaSelecionada = const SizedBox();
   PageController pages = PageController();
+
+  bool isCollapsed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +99,8 @@ class _HomePageState extends State<HomePage> {
             //     },
             //   ),
             // ],
-            controller: SidebarXController(selectedIndex: 0, extended: true),
+            controller:
+                SidebarXController(selectedIndex: 0, extended: !isCollapsed),
             theme: SidebarXTheme(
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -141,19 +145,21 @@ class _HomePageState extends State<HomePage> {
               return SizedBox(
                 height: 120,
                 child: Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   // child: Image.asset('images/avatar.png'),
                   child: Column(
-                    children: const [
-                      FlutterLogo(size: 40),
-                      SizedBox(height: 10),
-                      Text(
-                        'Storage Control',
-                        style: TextStyle(
-                          color: Cores.branco,
-                          fontSize: 20,
-                        ),
-                      ),
+                    children: [
+                      const FlutterLogo(size: 40),
+                      const SizedBox(height: 10),
+                      !isCollapsed
+                          ? const Text(
+                              'Storage Control',
+                              style: TextStyle(
+                                color: Cores.branco,
+                                fontSize: 20,
+                              ),
+                            )
+                          : Container()
                     ],
                   ),
                 ),
@@ -174,6 +180,13 @@ class _HomePageState extends State<HomePage> {
                   pages.jumpToPage(1);
                 },
               ),
+              SidebarXItem(
+                icon: CupertinoIcons.bed_double_fill,
+                label: 'Quartos',
+                onTap: () {
+                  pages.jumpToPage(2);
+                },
+              ),
               // const SidebarXItem(
               //     iconWidget: FlutterLogo(size: 20), label: 'Flutter'),
             ],
@@ -191,6 +204,7 @@ class _HomePageState extends State<HomePage> {
               children: const [
                 DashBoard(),
                 ListaItensPage(),
+                ListarQuartosPage(),
               ],
             ),
           ),
