@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
+import 'package:storage_control/pages/dashboard.dart';
+import 'package:storage_control/pages/lista_itens_page.dart';
 
 import '../classes/classes.dart';
 
@@ -13,6 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Widget telaSelecionada = const SizedBox();
+  PageController pages = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class _HomePageState extends State<HomePage> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
-          backgroundColor: Cores.vermelho,
+          backgroundColor: Cores.preto,
           title: const Text('Home Page'),
           centerTitle: true,
           actions: [
@@ -136,10 +139,23 @@ class _HomePageState extends State<HomePage> {
             footerDivider: const Divider(color: Colors.white, thickness: 1),
             headerBuilder: (context, extended) {
               return SizedBox(
-                height: 100,
+                height: 120,
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Image.asset('assets/images/avatar.png'),
+                  padding: EdgeInsets.all(16.0),
+                  // child: Image.asset('images/avatar.png'),
+                  child: Column(
+                    children: const [
+                      FlutterLogo(size: 40),
+                      SizedBox(height: 10),
+                      Text(
+                        'Storage Control',
+                        style: TextStyle(
+                          color: Cores.branco,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
@@ -148,19 +164,18 @@ class _HomePageState extends State<HomePage> {
                 icon: Icons.home,
                 label: 'Home',
                 onTap: () {
-                  debugPrint('Home');
+                  pages.jumpToPage(0);
                 },
               ),
               SidebarXItem(
                 icon: CupertinoIcons.cube_box_fill,
                 label: 'Estoque',
                 onTap: () {
-                  telaSelecionada = const Text('Estoque');
+                  pages.jumpToPage(1);
                 },
               ),
-              // const SidebarXItem(icon: Icons.people, label: 'Conta'),
-              const SidebarXItem(
-                  iconWidget: FlutterLogo(size: 20), label: 'Flutter'),
+              // const SidebarXItem(
+              //     iconWidget: FlutterLogo(size: 20), label: 'Flutter'),
             ],
           ),
           Container(
@@ -169,7 +184,15 @@ class _HomePageState extends State<HomePage> {
             ),
             width: MediaQuery.of(context).size.width - 200,
             height: MediaQuery.of(context).size.height,
-            child: telaSelecionada,
+            // child: telaSelecionada,
+            child: PageView(
+              controller: pages,
+              physics: const NeverScrollableScrollPhysics(),
+              children: const [
+                DashBoard(),
+                ListaItensPage(),
+              ],
+            ),
           ),
         ],
       ),
