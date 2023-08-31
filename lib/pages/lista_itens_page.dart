@@ -19,9 +19,9 @@ class _ListaItensPageState extends State<ListaItensPage> {
       height: MediaQuery.of(context).size.height,
       child: Column(
         children: [
-          Center(
+          const Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
+              padding: EdgeInsets.symmetric(vertical: 20),
               child: Text(
                 'Lista de Itens',
                 style: TextStyle(
@@ -29,6 +29,36 @@ class _ListaItensPageState extends State<ListaItensPage> {
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height - 150,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: Container(
+                      height: 50,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: Cores.cinza),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Icon(Icons.add),
+                          Text("Teste $index"),
+                          const Icon(Icons.edit),
+                          const Icon(Icons.delete),
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ),

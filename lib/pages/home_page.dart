@@ -90,15 +90,6 @@ class _HomePageState extends State<HomePage> {
       body: Row(
         children: [
           SidebarX(
-            // footerItems: [
-            //   SidebarXItem(
-            //     icon: Icons.logout,
-            //     label: 'Sair',
-            //     onTap: () {
-            //       Navigator.pushNamed(context, '/login');
-            //     },
-            //   ),
-            // ],
             controller:
                 SidebarXController(selectedIndex: 0, extended: !isCollapsed),
             theme: SidebarXTheme(
