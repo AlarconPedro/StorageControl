@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:storage_control/classes/classes.dart';
-import 'package:storage_control/pages/lista_itens_page.dart';
 
 class DashBoard extends StatefulWidget {
   PageController page;

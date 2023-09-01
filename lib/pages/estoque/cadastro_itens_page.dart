@@ -25,6 +25,9 @@ class _CadastroItensPageState extends State<CadastroItensPage>
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(),
+      body: Container(),
+    );
   }
 }

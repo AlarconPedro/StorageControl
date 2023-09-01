@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:storage_control/pages/dashboard.dart';
-import 'package:storage_control/pages/lista_itens_page.dart';
+import 'package:storage_control/pages/estoque/lista_itens_page.dart';
 import 'package:storage_control/pages/listar_quartos_page.dart';
 
 import '../classes/classes.dart';
