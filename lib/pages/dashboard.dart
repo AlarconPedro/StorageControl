@@ -3,9 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:storage_control/classes/classes.dart';
 import 'package:storage_control/pages/lista_itens_page.dart';
 
-class DashBoard extends StatelessWidget {
-  const DashBoard({super.key});
+class DashBoard extends StatefulWidget {
+  PageController page;
+  int index;
 
+  DashBoard({super.key, required this.page, required this.index});
+
+  @override
+  State<DashBoard> createState() => _DashBoardState();
+}
+
+class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +51,16 @@ class DashBoard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            widget.page.jumpToPage(1);
+                            widget.index = 1;
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Cores.vermelho,
+                          fixedSize: const Size(200, 50),
+                        ),
                         child: const Text("Controle de Estoque"),
                       )
                     ],
@@ -82,6 +99,10 @@ class DashBoard extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Cores.vermelho,
+                          fixedSize: const Size(200, 50),
+                        ),
                         child: const Text("Gerenciamento de Quartos"),
                       )
                     ],
@@ -120,6 +141,10 @@ class DashBoard extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Cores.vermelho,
+                          fixedSize: const Size(200, 50),
+                        ),
                         child: const Text("Visitar"),
                       )
                     ],
@@ -158,6 +183,10 @@ class DashBoard extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Cores.vermelho,
+                          fixedSize: const Size(200, 50),
+                        ),
                         child: const Text("Visitar"),
                       )
                     ],

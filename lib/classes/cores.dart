@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Cores {
+  static const Color verde = Color(0xFF43A047);
   static const Color vermelho = Color(0xFFE53935);
   static const Color vermelhoEscuro = Color.fromARGB(255, 153, 23, 14);
   static const Color vermelhoClaro = Color(0xFFFFEBEE);

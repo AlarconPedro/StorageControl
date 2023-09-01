@@ -18,6 +18,8 @@ class _HomePageState extends State<HomePage> {
   Widget telaSelecionada = const SizedBox();
   PageController pages = PageController();
 
+  int indexSelected = 0;
+
   bool isCollapsed = false;
 
   @override
@@ -90,8 +92,10 @@ class _HomePageState extends State<HomePage> {
       body: Row(
         children: [
           SidebarX(
-            controller:
-                SidebarXController(selectedIndex: 0, extended: !isCollapsed),
+            controller: SidebarXController(
+              selectedIndex: indexSelected,
+              extended: !isCollapsed,
+            ),
             theme: SidebarXTheme(
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -192,8 +196,8 @@ class _HomePageState extends State<HomePage> {
             child: PageView(
               controller: pages,
               physics: const NeverScrollableScrollPhysics(),
-              children: const [
-                DashBoard(),
+              children: [
+                DashBoard(page: pages, index: indexSelected),
                 ListaItensPage(),
                 ListarQuartosPage(),
               ],

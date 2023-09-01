@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:storage_control/classes/classes.dart';
+import 'package:storage_control/widgets/widgets.dart';
 
 class ListaItensPage extends StatefulWidget {
   const ListaItensPage({super.key});
@@ -15,50 +17,77 @@ class _ListaItensPageState extends State<ListaItensPage> {
       decoration: const BoxDecoration(
         color: Cores.brancoEscuro,
       ),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
       child: Column(
         children: [
           const Center(
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 20),
               child: Text(
-                'Lista de Itens',
+                'Estoque',
                 style: TextStyle(
-                  color: Cores.vermelho,
+                  color: Cores.preto,
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height - 150,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: Container(
-                      height: 50,
-                      decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Cores.cinza),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Icon(Icons.add),
-                          Text("Teste $index"),
-                          const Icon(Icons.edit),
-                          const Icon(Icons.delete),
-                        ],
-                      ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Cores.verde,
+                    fixedSize: const Size(180, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                  );
-                },
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(
+                        CupertinoIcons.add_circled,
+                        color: Cores.branco,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        'Novo',
+                        style: TextStyle(
+                          color: Cores.branco,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            margin: const EdgeInsets.all(15),
+            decoration: const BoxDecoration(
+                color: Cores.cinza,
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.75,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: GridView.count(
+                crossAxisCount: 5,
+                crossAxisSpacing: 5,
+                children: const [
+                  CardItemEstoque(),
+                  CardItemEstoque(),
+                  CardItemEstoque(),
+                  CardItemEstoque(),
+                  CardItemEstoque(),
+                  CardItemEstoque(),
+                  CardItemEstoque(),
+                ],
               ),
             ),
           ),
