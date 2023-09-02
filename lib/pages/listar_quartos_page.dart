@@ -1,5 +1,7 @@
+import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:storage_control/animations/loading_animation.dart';
 
 class ListarQuartosPage extends StatefulWidget {
   const ListarQuartosPage({super.key});
@@ -11,6 +13,6 @@ class ListarQuartosPage extends StatefulWidget {
 class _ListarQuartosPageState extends State<ListarQuartosPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(child: LoadingAnimation());
   }
 }
