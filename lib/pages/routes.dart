@@ -33,7 +33,7 @@ class _RoutesState extends State<Routes> {
   }
 
   deslogar() async {
-    await FirebaseAuth.instance.signOut();
+    // await FirebaseAuth.instance.signOut();
     Navigator.pushReplacementNamed(context, '/login');
   }
 

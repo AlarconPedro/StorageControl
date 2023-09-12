@@ -17,8 +17,8 @@ class _LoginPageState extends State<LoginPage> {
         color: Cores.brancoEscuro,
         child: Center(
           child: Container(
-            width: 400,
-            height: 400,
+            width: 600,
+            height: 600,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               shape: BoxShape.rectangle,
@@ -29,6 +29,68 @@ class _LoginPageState extends State<LoginPage> {
                   spreadRadius: 1,
                   blurRadius: 5,
                   offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Cores.preto,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    SizedBox(
+                      width: 400,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Usuário',
+                          labelStyle: TextStyle(
+                            color: Cores.preto,
+                          ),
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: const [
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Senha',
+                        labelStyle: TextStyle(
+                          color: Cores.preto,
+                        ),
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text('Entrar'),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
