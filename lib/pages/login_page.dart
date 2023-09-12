@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:storage_control/classes/globais.dart';
+import 'package:storage_control/pages/home_page.dart';
+import 'package:storage_control/pages/routes.dart';
 
 import '../classes/classes.dart';
 
@@ -33,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -49,6 +53,9 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ],
+                ),
+                const SizedBox(
+                  height: 40,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -67,18 +74,28 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Senha',
-                        labelStyle: TextStyle(
-                          color: Cores.preto,
+                    SizedBox(
+                      width: 400,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Senha',
+                          labelStyle: TextStyle(
+                            color: Cores.preto,
+                          ),
+                          border: OutlineInputBorder(),
                         ),
-                        border: OutlineInputBorder(),
                       ),
                     ),
                   ],
+                ),
+                const SizedBox(
+                  height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -86,7 +103,17 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(200, 50),
+                          foregroundColor: Cores.branco,
+                          backgroundColor: Cores.preto,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, Routes.home);
+                        },
                         child: const Text('Entrar'),
                       ),
                     ),

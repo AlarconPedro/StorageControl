@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         home: const Routes(),
         debugShowCheckedModeBanner: false,
         routes: {
+          '\\': (context) => const Routes(),
           '/home': (context) => const HomePage(),
           '/login': (context) => const LoginPage(),
           '/quartos': (context) => const ListarQuartosPage(),

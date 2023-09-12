@@ -198,8 +198,8 @@ class _HomePageState extends State<HomePage> {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 DashBoard(page: pages, index: indexSelected),
-                ListaItensPage(),
-                ListarQuartosPage(),
+                const ListaItensPage(),
+                const ListarQuartosPage(),
               ],
             ),
           ),
