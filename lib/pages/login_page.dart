@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:storage_control/classes/globais.dart';
 import 'package:storage_control/pages/home_page.dart';
-import 'package:storage_control/pages/routes.dart';
+import 'package:go_router/go_router.dart';
 
 import '../classes/classes.dart';
+import '../classes/globais.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,6 +13,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  logar() {
+    setState(() {
+      Globais.logado = true;
+      context.go('/home');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,8 +118,9 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
+                        // onPressed: logar,
                         onPressed: () {
-                          Navigator.pushNamed(context, Routes.home);
+                          logar();
                         },
                         child: const Text('Entrar'),
                       ),
