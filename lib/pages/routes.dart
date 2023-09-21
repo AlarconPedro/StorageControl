@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:storage_control/classes/globais.dart';
 import 'package:go_router/go_router.dart';
 import 'package:storage_control/pages/home_page.dart';
-import 'package:storage_control/pages/listar_quartos_page.dart';
+import 'package:storage_control/pages/quartos/listar_quartos_page.dart';
 import 'package:storage_control/pages/login_page.dart';
 
 class Routes extends StatefulWidget {
@@ -40,6 +40,7 @@ class _RoutesState extends State<Routes> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       routerConfig: _router,
     );
   }
@@ -50,7 +51,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const LoginPage();
+        return Globais.logado ? const HomePage() : const LoginPage();
       },
     ),
     GoRoute(
